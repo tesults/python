@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    
+<head>
+    <!--meta-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tesults Is a Test Automation Results Reporting Dashboard. Post results with a single REST API call.">
+    <meta name="keywords" content="automation,automated,test,report,reporting,results,dashboard">
+    <meta name="author" content="Tesults">
+
+    <!--title-->
+    <title>Tesults</title>
+</head>
+
+
+<body>
+
+<h1>Tesults</h1>
+
+<p>Tesults is a test automation results reporting service. <a href="https://www.tesults.com">https://www.tesults.com</a>
+
+<p>This API library makes it easier to upload your test results in your python application.</p>
+
+
+<h2>Installation</h2>
+
+
+<pre>
+    pip install tesults
+</pre>
+
+<h2>Configuration</h2>
+ 
+<pre>
+    import tesults
+</pre>
+
+
+<h2>Documentation</h2>
+
+<p>Documentation is available at <a href="https://www.tesults.com/docs">https://www.tesults.com/docs</a>
+
+
+<h2>API Overview</h2>
+
+<p>Upload test results using the results method:</p>
+
+<pre>
+    tesults.results(data)
+</pre>
+    
+<p>This call returns a dictionary indicating success or failure along with a reason for failure.</p>
+
+<pre>
+    ret = tesults.results(data)
+    # ret['success'] is a bool, true if results successfully uploaded, false otherwise
+    # ret['message'] is a string, if success is false, check message to see why upload failed
+</pre>
+
+
+<p>The data param in results is a dictionary containing your test results in the form:</p>
+
+<pre>
+    data = {
+        'target': 'token',
+        'results': {
+            'cases': [
+                {'name': 'Test 1', 
+                 'desc':'Test 1 description.',
+                 'suite': 'Suite A',
+                 'result': 'pass'
+                },
+                {'name': 'Test 2', 
+                 'desc':'Test 2 description.',
+                 'suite': 'Suite A',
+                 'result': 'fail',
+                 'reason': 'Assert fail in line 203, example.py'
+                },
+                {'name': 'Test 3', 
+                 'desc':'Test 3 description.',
+                 'suite': 'Suite B',
+                 'result': 'pass'
+                }
+            ]
+        }
+    }
+</pre>
+    
+<p>The target value, 'token' above should be replaced with your Tesults target token. If you have lost your token you can regenerate one at https://www.tesults.com/config. The cases array should contain your test cases.</p>
+
+
+<h2>Support</h2>
+ 
+<p>support@tesults.com</p>
+    
+</body>
+</html>
