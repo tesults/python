@@ -12,9 +12,9 @@ from os import path
 
 setup(
     name='tesults',
-    version='1.0.1',
+    version='1.1.0',
     description='Tesults API library',
-    long_description='This API library makes it easier to upload your test results to Tesults in your python application.',
+    long_description='Tesults API library for uploading test results to Tesults in your python application.',
     url='https://www.tesults.com',
     author='Tesults',
     author_email='support@tesults.com',
@@ -31,6 +31,10 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+    ],
+    install_requires=[
+        'requests',
+        'boto3'
     ],
     keywords='tesults test results automation automated dashboard reporting',
     py_modules=['tesults']
