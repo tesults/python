@@ -9,29 +9,29 @@ def main():
                  'desc':'Test 1 desc',
                  'suite': 'Suite A',
                  'result': 'pass',
-                 'files' : ['/Users/admin/Desktop/TestFiles/log0.txt', '/Users/admin/Desktop/TestFiles/log1.txt']
+                 'files' : ['/Users/admin/Desktop/img1.png', '/Users/admin/Desktop/img2.png']
 
                 },
                 {'name': 'Test 2',
                  'desc':'Test 2 desc',
                  'suite': 'Suite A',
                  'result': 'pass',
-                 'files' : ['/Users/admin/Desktop/TestFiles/capture0.png', '/Users/admin/Desktop/TestFiles/capture2.png']
+                 'files' : ['/Users/admin/Desktop/img3.png', '/Users/admin/Desktop/img4.png']
                 },
                 {'name': 'Test 3',
                  'desc':'Test 3 desc',
                  'suite': 'Suite A',
                  'result': 'pass',
-                 'files' : ['/Users/admin/Desktop/TestFiles/capture3.png']
+                 'files' : ['/Users/admin/Desktop/img4.png']
                 }
             ]
         }
     }
     
     response = tesults.results(data)
-    print 'success: ' + str(response.get('success'))
-    print 'message: ' + response.get('message')
-    print 'warnings: ' + str(len(response.get('warnings')))
-    print 'errors: ' + str(len(response.get('errors')))
+    print ('success: ' + str(response.get('success')))
+    print ('message: ' + response.get('message'))
+    print ('warnings: ' + str(len(response.get('warnings'))))
+    print ('errors: ' + str(len(response.get('errors'))))
 
 main()

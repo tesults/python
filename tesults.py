@@ -4,7 +4,7 @@ import time
 import os
 import threading
 
-expireBuffer = long(30) # 30 seconds
+expireBuffer = int(30) # 30 seconds
 
 filesUploaded = 0
 bytesUploaded = 0
@@ -64,7 +64,7 @@ def files_upload(files, keyPrefix, auth, target):
                     uploading.remove(self._filename)
 
     expirationString = auth.get('Expiration')
-    expiration = long(expirationString)
+    expiration = int(expirationString)
     uploading = []
     warnings = []
     maxActiveUploads = 10 # Upload at most 10 files simultaneously to avoid hogging the client machine.
@@ -74,7 +74,7 @@ def files_upload(files, keyPrefix, auth, target):
         try:
             if len(uploading) < maxActiveUploads and len(files) != 0:
                 # check if new credentials required
-                now = long(time.time())
+                now = int(time.time())
                 if now + expireBuffer > expiration: # check within 30 seconds of expiry
                     #refresh credentials here
                     if len(uploading) == 0:
@@ -98,7 +98,7 @@ def files_upload(files, keyPrefix, auth, target):
                             else:
                                 # Upload permitted
                                 expirationString = auth.get('Expiration')
-                                expiration = long(expirationString)
+                                expiration = int(expirationString)
                                 s3 = create_s3_client(auth)
 
                 if now + expireBuffer < expiration:

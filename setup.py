@@ -12,7 +12,7 @@ from os import path
 
 setup(
     name='tesults',
-    version='1.1.0',
+    version='1.2.0',
     description='Tesults API library',
     long_description='Tesults API library for uploading test results to Tesults in your python application.',
     url='https://www.tesults.com',
@@ -31,6 +31,7 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
     install_requires=[
         'requests',

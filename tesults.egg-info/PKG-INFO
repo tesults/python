@@ -1,11 +1,12 @@
 Metadata-Version: 1.1
 Name: tesults
-Version: 1.1.0
+Version: 1.2.0
 Summary: Tesults API library
 Home-page: https://www.tesults.com
 Author: Tesults
 Author-email: support@tesults.com
 License: MIT
+Description-Content-Type: UNKNOWN
 Description: Tesults API library for uploading test results to Tesults in your python application.
 Keywords: tesults test results automation automated dashboard reporting
 Platform: UNKNOWN
@@ -20,3 +21,4 @@ Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3.3
 Classifier: Programming Language :: Python :: 3.4
 Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
