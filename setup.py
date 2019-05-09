@@ -12,7 +12,7 @@ from os import path
 
 setup(
     name='tesults',
-    version='1.2.0',
+    version='1.2.1',
     description='Tesults API library',
     long_description='Tesults API library for uploading test results to Tesults in your python application.',
     url='https://www.tesults.com',

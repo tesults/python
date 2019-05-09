@@ -146,7 +146,14 @@ def results(data):
         return {'success': False, 'message': message, 'warnings': [], 'errors': [message]}
     
     response = requests.post('https://www.tesults.com/results', json=data)
-    jsonResponse = response.json()
+    jsonResponse = None
+    try:
+        jsonResponse = response.json()
+    except JSONDecodeError as e:
+        errorMessage = 'Error saving test cases (Error: PY01), please contact support.'
+        errors = []
+        errors.append(errorMessage)
+        return {'success': False, 'message': errorMessage, 'warnings': [], 'errors': errors}
 
     if response.status_code != 200:
         failData = jsonResponse.get('error')
@@ -171,12 +178,16 @@ def results(data):
             auth = upload.get('auth')
 
             if permit != True:
-                return {'success': True, 'message': messageResponse, 'warnings': [uploadMessage], 'errors': []}
+                warnings = []
+                warnings.append(uploadMessage)
+                return {'success': True, 'message': messageResponse, 'warnings': warnings, 'errors': []}
 
             # upload required and permitted
             try:
                 fileUploadReturn = files_upload(files, key, auth, target) # This can take a while
             except ValueError as e:
-                return {'success': True, 'message': e, 'warnings': [e], 'errors':[]} 
+                warnings = []
+                warnings.append(str(e))
+                return {'success': True, 'message': e, 'warnings': warnings, 'errors':[]} 
 
             return {'success': True, 'message': fileUploadReturn['message'], 'warnings': fileUploadReturn['warnings'], 'errors':[]}
