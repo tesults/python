@@ -1,4 +1,4 @@
-LICENSE.txt
+LICENSE
 MANIFEST.in
 README.rst
 setup.cfg
